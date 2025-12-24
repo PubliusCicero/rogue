@@ -1,0 +1,118 @@
+cc -c hit.c
+hit.c:89:15: warning: passing arguments to 'mon_name' without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+   89 |         mn = mon_name(monster);
+      |                      ^
+hit.c:66:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+   66 | void mon_hit(monster)
+      |      ^
+hit.c:127:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  127 | void rogue_hit(monster, force_hit)
+      |      ^
+hit.c:165:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  165 | void rogue_damage(d, monster, other)
+      |      ^
+hit.c:166:7: warning: promoted type 'int' of K&R function parameter is not compatible with the parameter type 'short' declared in a previous prototype [-Wknr-promoted-parameter]
+  166 | short d;
+      |       ^
+./rogue.h:474:25: note: previous declaration is here
+  474 | void rogue_damage(short d, object *monster, short other);
+      |                         ^
+hit.c:168:7: warning: promoted type 'int' of K&R function parameter is not compatible with the parameter type 'short' declared in a previous prototype [-Wknr-promoted-parameter]
+  168 | short other;
+      |       ^
+./rogue.h:474:51: note: previous declaration is here
+  474 | void rogue_damage(short d, object *monster, short other);
+      |                                                   ^
+hit.c:181:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  181 | void get_damage(ds, r)
+      |      ^
+hit.c:181:6: error: conflicting types for 'get_damage'
+./rogue.h:469:5: note: previous declaration is here
+  469 | int get_damage(const char *ds, boolean r);
+      |     ^
+hit.c:204:2: error: void function 'get_damage' should not return a value [-Wreturn-mismatch]
+  204 |         return(total);
+      |         ^     ~~~~~~~
+hit.c:181:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  181 | void get_damage(ds, r)
+      |      ^
+hit.c:207:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  207 | void get_w_damage(obj)
+      |      ^
+hit.c:207:6: error: conflicting types for 'get_w_damage'
+./rogue.h:470:5: note: previous declaration is here
+  470 | int get_w_damage(const object *obj);
+      |     ^
+hit.c:215:3: error: void function 'get_w_damage' should not return a value [-Wreturn-mismatch]
+  215 |                 return(-1);
+      |                 ^     ~~~~
+hit.c:223:2: error: void function 'get_w_damage' should not return a value [-Wreturn-mismatch]
+  223 |         return(get_damage(new_damage, 1));
+      |         ^     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+hit.c:207:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  207 | void get_w_damage(obj)
+      |      ^
+hit.c:226:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  226 | void get_number(s)
+      |      ^
+hit.c:226:6: error: conflicting types for 'get_number'
+./rogue.h:471:5: note: previous declaration is here
+  471 | int get_number(const char *s);
+      |     ^
+hit.c:236:2: error: void function 'get_number' should not return a value [-Wreturn-mismatch]
+  236 |         return(total);
+      |         ^     ~~~~~~~
+hit.c:226:6: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  226 | void get_number(s)
+      |      ^
+hit.c:240:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+  240 | lget_number(s)
+      | ^
+In file included from hit.c:57:
+./rogue.h:462:6: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C23, conflicting with a subsequent definition [-Wdeprecated-non-prototype]
+  462 | long lget_number();
+      |      ^
+hit.c:253:1: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+  253 | to_hit(obj)
+      | ^
+      | int
+hit.c:253:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+hit.c:269:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  269 |                 return(strength-5);
+      |                 ^     ~~~~~~~~~~~~
+hit.c:272:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  272 |                 return(1);
+      |                 ^     ~~~
+hit.c:275:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  275 |                 return(3);
+      |                 ^     ~~~
+hit.c:278:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  278 |                 return(4);
+      |                 ^     ~~~
+hit.c:281:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  281 |                 return(5);
+      |                 ^     ~~~
+hit.c:284:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  284 |                 return(6);
+      |                 ^     ~~~
+hit.c:287:3: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  287 |                 return(7);
+      |                 ^     ~~~
+hit.c:289:2: error: void function 'damage_for_strength' should not return a value [-Wreturn-mismatch]
+  289 |         return(8);
+      |         ^     ~~~
+hit.c:292:1: error: type specifier missing, defaults to 'int'; ISO C99 and later do not support implicit int [-Wimplicit-int]
+  292 | mon_damage(monster, damage)
+      | ^
+      | int
+hit.c:292:1: warning: a function definition without a prototype is deprecated in all versions of C and is not supported in C23 [-Wdeprecated-non-prototype]
+hit.c:292:1: error: conflicting types for 'mon_damage'
+./rogue.h:475:7: note: previous declaration is here
+  475 | short mon_damage(object *monster, short damage);
+      |       ^
+hit.c:305:27: error: call to undeclared function 'get_dungeon_char'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  305 |                 mvaddch(row, col, (int) get_dungeon_char(row, col));
+      |                                         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+16 warnings and 20 errors generated.
+make: *** [hit.o] Error 1
