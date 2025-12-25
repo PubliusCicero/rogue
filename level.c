@@ -800,7 +800,7 @@ short nr;		/* try not to put in this room */
 	mvaddch(rogue.row, rogue.col, rogue.fchar);
 }
 
-void
+int
 drop_check()
 {
 	if (wizard) {
@@ -817,7 +817,7 @@ drop_check()
 	return(0);
 }
 
-void
+int
 check_up()
 {
 	if (!wizard) {

@@ -453,9 +453,11 @@ hold_monster()
 			}
 			if (dungeon[row][col] & MONSTER) {
 				monster = object_at(&level_monsters, row, col);
-				monster->m_flags |= ASLEEP;
-				monster->m_flags &= (~WAKENS);
-				mcount++;
+				if (monster) {
+					monster->m_flags |= ASLEEP;
+					monster->m_flags &= (~WAKENS);
+					mcount++;
+				}
 			}
 		}
 	}

@@ -103,7 +103,9 @@ zapp()
 		} else {
 			monster = get_zapped_monster(d, &row, &col);
 			if (wand->which_kind == DRAIN_LIFE) {
-				wdrain_life(monster);
+				if (monster) {
+					wdrain_life(monster);
+				}
 			} else if (monster) {
 				wake_up(monster);
 				s_con_mon(monster);
@@ -332,35 +334,36 @@ short ball, dir, row, col, r;
 
 		monster = object_at(&level_monsters, row, col);
 
-		wake_up(monster);
-		if (rand_percent(33)) {
-			sprintf(buf, "the %s misses the %s", s, mon_name(monster));
-			message(buf, 0);
-			goto ND;
-		}
-		if (ball == FIRE) {
-			if (!(monster->m_flags & RUSTS)) {
-				if (monster->m_flags & FREEZES) {
-					damage = monster->hp_to_kill;
-				} else if (monster->m_flags & FLAMES) {
-					damage = (monster->hp_to_kill / 10) + 1;
-				} else {
-					damage = get_rand((rogue.hp_current / 3), rogue.hp_max);
-				}
-			} else {
-				damage = (monster->hp_to_kill / 2) + 1;
+		if (monster) {
+			wake_up(monster);
+			if (rand_percent(33)) {
+				sprintf(buf, "the %s misses the %s", s, mon_name(monster));
+				message(buf, 0);
+				goto ND;
 			}
-			sprintf(buf, "the %s hits the %s", s, mon_name(monster));
-			message(buf, 0);
-			(void) mon_damage(monster, damage);
-		} else {
-			damage = -1;
-			if (!(monster->m_flags & FREEZES)) {
-				if (rand_percent(33)) {
-					message("the monster is frozen", 0);
-					monster->m_flags |= (ASLEEP | NAPPING);
-					monster->nap_length = get_rand(3, 6);
+			if (ball == FIRE) {
+				if (!(monster->m_flags & RUSTS)) {
+					if (monster->m_flags & FREEZES) {
+						damage = monster->hp_to_kill;
+					} else if (monster->m_flags & FLAMES) {
+						damage = (monster->hp_to_kill / 10) + 1;
+					} else {
+						damage = get_rand((rogue.hp_current / 3), rogue.hp_max);
+					}
 				} else {
+					damage = (monster->hp_to_kill / 2) + 1;
+				}
+				sprintf(buf, "the %s hits the %s", s, mon_name(monster));
+				message(buf, 0);
+				(void) mon_damage(monster, damage);
+			} else {
+				damage = -1;
+				if (!(monster->m_flags & FREEZES)) {
+					if (rand_percent(33)) {
+						message("the monster is frozen", 0);
+						monster->m_flags |= (ASLEEP | NAPPING);
+						monster->nap_length = get_rand(3, 6);
+					} else {
 					damage = rogue.hp_current / 4;
 				}
 			} else {
@@ -371,6 +374,7 @@ short ball, dir, row, col, r;
 				message(buf, 0);
 				(void) mon_damage(monster, damage);
 			}
+		}
 		}
 	} else if ((row == rogue.row) && (col == rogue.col)) {
 		if (rand_percent(10 + (3 * get_armor_class(rogue.armor)))) {

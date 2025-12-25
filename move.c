@@ -105,7 +105,10 @@ short dirch, pickup;
 		}
 	}
 	if (dungeon[row][col] & MONSTER) {
-		rogue_hit(object_at(&level_monsters, row, col), 0);
+		object *monster = object_at(&level_monsters, row, col);
+		if (monster) {
+			rogue_hit(monster, 0);
+		}
 		(void) reg_move();
 		return(MOVE_FAILED);
 	}
