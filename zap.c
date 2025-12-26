@@ -56,11 +56,15 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void zapp();
+void bounce();
+
 boolean wizard = 0;
 
 extern boolean being_held, score_only, detect_monster;
 extern short cur_room;
- int
+void
 zapp()
 {
 	short wch;
@@ -277,6 +281,7 @@ object *monster;
 	relight();
 }
 
+void
 bounce(ball, dir, row, col, r)
 short ball, dir, row, col, r;
 {

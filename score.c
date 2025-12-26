@@ -156,6 +156,7 @@ win()
 	put_scores((object *) 0, WIN);
 }
 
+void
 quit(from_intrpt)
 boolean from_intrpt;
 {

@@ -56,6 +56,9 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void put_on_ring();
+
 const char *left_or_right = "left or right hand?";
 const char *no_ring = "there's no ring on that hand";
 short stealthy;
@@ -72,7 +75,7 @@ boolean maintain_armor;
 
 extern char *curse_message;
 extern boolean wizard;
- int
+void
 put_on_ring()
 {
 	short ch;

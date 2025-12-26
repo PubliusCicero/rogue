@@ -56,13 +56,16 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void play_level();
+
 boolean interrupted = 0;
 const char *unknown_command = "unknown command";
 
 extern short party_room, bear_trap;
 extern char hit_message[];
 extern boolean wizard, trap_door;
- int
+void
 play_level()
 {
 	short ch;

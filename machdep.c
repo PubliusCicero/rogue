@@ -47,6 +47,20 @@ static const char rcsid[] =
 #define UNIX
 #endif
 
+/* Define UNIX for generic Unix/Linux systems */
+#ifndef UNIX
+#if defined(__linux__) || defined(__unix__) || defined(__APPLE__) || defined(__FreeBSD__)
+#define UNIX
+#endif
+#endif
+
+/* Define UNIX_BSD4_2 for Linux systems if not already defined */
+#ifndef UNIX_BSD4_2
+#if defined(__linux__) && !defined(UNIX_SYSV)
+#define UNIX_BSD4_2
+#endif
+#endif
+
 /*
  * machdep.c
  *
@@ -515,6 +529,7 @@ int status;
  * the lock is released.
  */
 
+void
 md_lock(l)
 boolean l;
 {
@@ -544,6 +559,7 @@ boolean l;
  * The effective user id is restored after the shell completes.
  */
 
+void
 md_shell(shell)
 const char *shell;
 {

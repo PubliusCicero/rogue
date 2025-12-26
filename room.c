@@ -56,6 +56,10 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void light_passage();
+void dr_course();
+
 room rooms[MAXROOMS];
 boolean rooms_visited[MAXROOMS];
 
@@ -132,6 +136,7 @@ int rn;
 	}
 }
 
+void
 light_passage(row, col)
 int row, col;
 {
@@ -413,6 +418,7 @@ draw_magic_map()
 	}
 }
 
+void
 dr_course(monster, entering, row, col)
 object *monster;
 boolean entering;

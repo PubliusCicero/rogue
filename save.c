@@ -57,6 +57,9 @@ static const char rcsid[] =
 #include <stdio.h>
 #include "rogue.h"
 
+/* Forward declarations */
+void save_into_file();
+
 short write_failed = 0;
 char *save_file = (char *) 0;
 static char save_name[80];
@@ -83,7 +86,7 @@ extern boolean score_only;
 extern short m_moves;
 
 extern boolean msg_cleared;
- int
+void
 save_game()
 {
 	char fname[64];
@@ -97,6 +100,7 @@ save_game()
 	save_into_file(fname);
 }
 
+void
 save_into_file(sfile)
 const char *sfile;
 {
@@ -170,7 +174,8 @@ const char *sfile;
 	}
 }
 
-static del_save_file()
+static void
+del_save_file()
 {
 	if (!save_name[0])
 		return;

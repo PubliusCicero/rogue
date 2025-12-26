@@ -56,6 +56,13 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void drop();
+void wait_for_ack();
+void wear();
+void wield();
+void call_it();
+
 const char *curse_message = "you can't, it appears to be cursed";
 
 extern short levitate;
@@ -150,7 +157,7 @@ short *status;
 	obj->picked_up = 1;
 	return(obj);
 }
- int
+void
 drop()
 {
 	object *obj, *new;
@@ -268,7 +275,7 @@ next_avail_ichar()
 	}
 	return('?');
 }
- int
+void
 wait_for_ack()
 {
 	if (!isatty(0) || !isatty(1))
@@ -335,7 +342,7 @@ take_off()
 		message("not wearing any", 0);
 	}
 }
- int
+void
 wear()
 {
 	short ch;
@@ -384,7 +391,7 @@ object *obj;
 	obj->in_use_flags |= BEING_WORN;
 	obj->identified = 1;
 }
- int
+void
 wield()
 {
 	short ch;
@@ -437,7 +444,7 @@ object *obj;
 	}
 	rogue.weapon = (object *) 0;
 }
- int
+void
 call_it()
 {
 	short ch;

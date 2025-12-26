@@ -216,7 +216,7 @@ const struct id_com_s com_id_tab[COMS] = {
 extern boolean wizard;
 extern char *m_names[], *more;
 
-int
+void
 inventory(pack, mask)
 const object *pack;
 unsigned short mask;
@@ -649,7 +649,7 @@ get_wand_and_ring_materials()
 	}
 }
 
-int
+void
 single_inv(ichar)
 short ichar;
 {
@@ -695,7 +695,7 @@ const object *obj;
 	return((struct id *) 0);
 }
 
-int
+void
 inv_armor_weapon(is_weapon)
 boolean is_weapon;
 {
@@ -714,7 +714,7 @@ boolean is_weapon;
 	}
 }
 
-int
+void
 id_type()
 {
 	const char *id;

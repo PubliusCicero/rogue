@@ -56,6 +56,11 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void trap_player();
+void id_trap();
+void search();
+
 trap traps[MAX_TRAPS];
 boolean trap_door = 0;
 short bear_trap = 0;
@@ -95,6 +100,7 @@ int row, col;
 	return(NO_TRAP);
 }
 
+void
 trap_player(row, col)
 short row, col;
 {
@@ -190,7 +196,7 @@ add_traps()
 		dungeon[row][col] |= (TRAP | HIDDEN);
 	}
 }
- int
+void
 id_trap()
 {
 	short dir, row, col, d, t;
@@ -231,6 +237,7 @@ show_traps()
 	}
 }
 
+void
 search(n, is_auto)
 short n;
 boolean is_auto;

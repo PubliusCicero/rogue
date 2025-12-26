@@ -56,6 +56,9 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void c_object_for_wizard();
+
 object level_objects;
 unsigned short dungeon[DROWS][DCOLS];
 short foods = 0;
@@ -161,7 +164,7 @@ extern short cur_level, max_level;
 extern short party_room;
 extern char *error_file;
 extern boolean is_wood[];
- int
+void
 put_objects()
 {
 	short i, n;
@@ -711,7 +714,7 @@ object *obj;
 	gr_row_col(&row, &col, (FLOOR | TUNNEL));
 	place_at(obj, row, col);
 }
- int
+void
 c_object_for_wizard()
 {
 	short ch, max, wk;

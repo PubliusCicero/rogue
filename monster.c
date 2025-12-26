@@ -56,6 +56,9 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void mv_1_monster();
+
 object level_monsters;
 boolean mon_disappeared;
 
@@ -172,7 +175,7 @@ int mn;
 	monster->trow = NO_ROOM;
 	return(monster);
 }
- int
+void
 mv_mons()
 {
 	object *monster, *next_monster, *test_mons;
@@ -301,6 +304,7 @@ object *monster;
 	return(monster->m_char);
 }
 
+void
 mv_1_monster(monster, row, col)
 object *monster;
 short row, col;
@@ -646,7 +650,7 @@ wanderer()
 		}
 	}
 }
- int
+void
 show_monsters()
 {
 	object *monster;

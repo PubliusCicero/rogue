@@ -56,6 +56,13 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void quaff();
+void read_scroll();
+void idntfy();
+void eat();
+void hallucinate();
+
 short halluc = 0;
 short blind = 0;
 short confused = 0;
@@ -74,7 +81,7 @@ extern long level_points[];
 extern boolean being_held;
 extern char *fruit, *you_can_move_again;
 extern boolean sustain_strength;
- int
+void
 quaff()
 {
 	short ch;
@@ -187,7 +194,7 @@ quaff()
 	}
 	vanish(obj, 1, &rogue.pack);
 }
- int
+void
 read_scroll()
 {
 	short ch;
@@ -367,7 +374,7 @@ potion_heal(extra)
 		halluc = (halluc / 2) + 1;
 	}
 }
- int
+void
 idntfy()
 {
 	short ch;
@@ -394,7 +401,7 @@ AGAIN:
 	get_desc(obj, desc);
 	message(desc, 0);
 }
- int
+void
 eat()
 {
 	short ch;
@@ -481,7 +488,7 @@ tele()
 	being_held = 0;
 	bear_trap = 0;
 }
- int
+void
 hallucinate()
 {
 	object *obj, *monster;

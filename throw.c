@@ -56,10 +56,13 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void throw();
+
 extern short cur_room;
 extern char *curse_message;
 extern char hit_message[];
- int
+void
 throw()
 {
 	short wch, d;

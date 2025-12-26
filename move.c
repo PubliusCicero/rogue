@@ -56,6 +56,9 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void heal();
+
 short m_moves = 0;
 boolean jump = 0;
 const char *you_can_move_again = "you can move again";
@@ -550,7 +553,7 @@ gr_dir()
 	}
 	return(d);
 }
- int
+void
 heal()
 {
 	static short heal_exp = -1, n, c = 0;

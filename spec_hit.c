@@ -56,6 +56,15 @@ static const char rcsid[] =
 
 #include "rogue.h"
 
+/* Forward declarations */
+void rust();
+void freeze();
+void steal_gold();
+void steal_item();
+void sting();
+void drop_level();
+void drain_life();
+
 short less_hp = 0;
 boolean being_held;
 
@@ -97,6 +106,7 @@ object *monster;
 	}
 }
 
+void
 rust(monster)
 object *monster;
 {
@@ -116,6 +126,7 @@ object *monster;
 	}
 }
 
+void
 freeze(monster)
 object *monster;
 {
@@ -149,6 +160,7 @@ object *monster;
 	}
 }
 
+void
 steal_gold(monster)
 object *monster;
 {
@@ -169,6 +181,7 @@ object *monster;
 	disappear(monster);
 }
 
+void
 steal_item(monster)
 object *monster;
 {
@@ -393,6 +406,7 @@ short row, col;
 	return(0);
 }
 
+void
 sting(monster)
 object *monster;
 {
@@ -415,7 +429,7 @@ object *monster;
 		print_stats(STAT_STRENGTH);
 	}
 }
- int
+void
 drop_level()
 {
 	int hp;
@@ -434,7 +448,7 @@ drop_level()
 	}
 	add_exp(1, 0);
 }
- int
+void
 drain_life()
 {
 	short n;
