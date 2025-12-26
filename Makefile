@@ -1,5 +1,5 @@
-#	@(#)Makefile	8.1 (Berkeley) 5/31/93
-# $FreeBSD: src/games/rogue/Makefile,v 1.8 2001/01/25 12:24:29 phantom Exp $
+# Makefile for Rogue - 8.1 (Berkeley) 5/31/93
+# FreeBSD: src/games/rogue/Makefile,v 1.8 2001/01/25 12:24:29 phantom Exp
 
 CFLAGS := -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-error=return-mismatch -Wno-error=implicit-int
 
