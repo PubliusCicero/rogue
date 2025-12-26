@@ -1,7 +1,7 @@
 # Makefile for Rogue - 8.1 (Berkeley) 5/31/93
 # FreeBSD: src/games/rogue/Makefile,v 1.8 2001/01/25 12:24:29 phantom Exp
 
-CFLAGS := -Wno-deprecated-non-prototype -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-error=return-mismatch -Wno-error=implicit-int
+CFLAGS := -Wno-implicit-function-declaration -Wno-error=implicit-int
 
 rogue: hit.o init.o inventory.o level.o machdep.o main.o message.o monster.o move.o object.o pack.o play.o random.o ring.o room.o save.o score.o spec_hit.o throw.o trap.o use.o zap.o
 	gcc $(CFLAGS) -g -o rogue hit.o init.o inventory.o level.o machdep.o main.o message.o monster.o move.o object.o pack.o play.o random.o ring.o room.o save.o score.o spec_hit.o throw.o trap.o use.o zap.o -lcurses
