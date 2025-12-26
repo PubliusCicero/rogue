@@ -458,7 +458,7 @@ object *pick_up();
 struct id *get_id_table();
 unsigned short gr_what_is();
 #define rrandom rand
-#define srrandom(x) srand()
+#define srrandom(x) srand(x)
 long lget_number();
 long xxx();
 void byebye(), onintr(), error_save();
