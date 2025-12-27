@@ -1,6 +1,6 @@
 # RogueDarwin
 
-A classic text-based dungeon crawler game - Rogue, the original roguelike.
+A classic text-based dungeon crawler game - Rogue, the original roguelike. This branch is for the iSH terminal emulator app for iOS.
 
 ## Overview
 
@@ -30,11 +30,7 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 
 ## Building
 
-Use the provided Makefile to compile:
-
-```bash
-make
-```
+See installation.md
 
 ## Playing
 
