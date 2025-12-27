@@ -1,33 +1,11 @@
-# Building Rogue in iSH (iOS Linux Emulator)
+iOS Usage Instructions
 
-iSH is an x86 Alpine Linux emulator that can compile and run native Linux applications.
-
-## Setup Steps:
-
-1. Install dependencies in iSH:
-   ```bash
-   apk update
-   apk add git build-base ncurses-dev
-   ```
-
-2. Clone the project:
-   ```bash
-   git clone https://github.com/PubliusCicero/rogue
-   cd rogue
-   ```
-
-3. Build the project:
-   ```bash
-   make
-   ```
-
-4. Run the game:
-   ```bash
-   ./rogue
-   ```
-
-## Notes:
-- The Makefile uses `clang` which is available in Alpine Linux
-- The `ncurses-dev` package provides curses library needed for terminal UI
-- The compiled binary will be a native x86 Alpine Linux ELF executable
-- Do NOT run with `sh ./rogue` - run it directly as `./rogue`
+1. Install iSH terminal emulator
+2. Run `apk update`
+3. Run `apk add git build-base ncurses-dev`
+4. Run `git clone -b iOS htps://github.com/PubliusCicero/rogue`
+5. Run `cd rogue`
+6. Run `make`
+7. If the build completes successfully (i.e. no errors are printed), there should a an executable called rogue
+8. To play, run `./rogue`
+9. If you get an error saying can only be played on 24x80 screen, try reducing the font size in iSH settings until it runs successfully.
