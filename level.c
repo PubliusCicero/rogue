@@ -397,7 +397,17 @@ clear_level()
 	being_held = bear_trap = 0;
 	party_room = NO_ROOM;
 	rogue.row = rogue.col = -1;
+	
+	/* Aggressive clearing for iSH compatibility */
+	erase();
 	clear();
+	for (i = 0; i < DROWS; i++) {
+		for (j = 0; j < DCOLS; j++) {
+			move(i, j);
+			addch(' ');
+		}
+	}
+	move(0, 0);
 	refresh();
 }
 
@@ -790,9 +800,11 @@ short nr;		/* try not to put in this room */
 	if (cur_room != PASSAGE) {
 		light_up_room(cur_room);
 		refresh();
+		fflush(stdout);
 	} else {
 		light_passage(rogue.row, rogue.col);
 		refresh();
+		fflush(stdout);
 	}
 	/* Force full screen redraw on iSH */
 	clearok(stdscr, TRUE);

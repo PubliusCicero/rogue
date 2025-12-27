@@ -119,6 +119,9 @@ char *argv[];
 	refresh();
 	/* Force full redraw on iSH - some ncurses implementations need this */
 	clearok(stdscr, TRUE);
+	refresh();
+	/* Extra synchronization for iSH */
+	fflush(stdout);
 
 	md_heed_signals();
 

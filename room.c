@@ -129,8 +129,7 @@ int rn;
 						dungeon[monster->row][monster->col] |= MONSTER;
 					}
 				}
-				move(i, j);
-				addch(get_dungeon_char(i, j));
+				mvaddch(i, j, get_dungeon_char(i, j));
 			}
 		}
 	}
@@ -151,8 +150,7 @@ int row, col;
 	for (i = ((row > MIN_ROW) ? -1 : 0); i <= i_end; i++) {
 		for (j = ((col > 0) ? -1 : 0); j <= j_end; j++) {
 			if (can_move(row, col, row+i, col+j)) {
-				move(row+i, col+j);
-				addch(get_dungeon_char(row+i, col+j));
+				mvaddch(row+i, col+j, get_dungeon_char(row+i, col+j));
 			}
 		}
 	}
