@@ -30,11 +30,7 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 
 ## Building
 
-Use the provided Makefile to compile:
-
-```bash
-make
-```
+See installation.md
 
 ## Playing
 
