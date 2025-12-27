@@ -134,7 +134,7 @@ static const char rcsid[] =
 
 #ifdef UNIX_SYSV
 #include <time.h>
-#include <termio.h>
+#include <termios.h>
 #endif
 
 #include <signal.h>
@@ -189,8 +189,8 @@ boolean mode;
 	struct tchars tc_temp;
 #endif
 #ifdef UNIX_SYSV
-	static struct termio _oldtty;
-	struct termio _tty;
+	static struct termios _oldtty;
+	struct termios _tty;
 #endif
 
 	if (!called_before) {
@@ -200,7 +200,7 @@ boolean mode;
 		ioctl(0, TIOCGLTC, &ltc_orig);
 #endif
 #ifdef UNIX_SYSV
-		ioctl(0, TCGETA, &_oldtty);
+		tcgetattr(0, &_oldtty);
 #endif
 	}
 #ifdef UNIX_BSD4_2
@@ -219,7 +219,7 @@ boolean mode;
 		tc_temp.t_startc = tc_temp.t_stopc = -1;
 #endif
 #ifdef UNIX_SYSV
-		_tty.c_cc[VSWTCH] = CNSWTCH;
+		_tty.c_cc[VSUSP] = _POSIX_VDISABLE;
 #endif
 	}
 #ifdef UNIX_BSD4_2
@@ -227,7 +227,7 @@ boolean mode;
 	ioctl(0, TIOCSLTC, &ltc_temp);
 #endif
 #ifdef UNIX_SYSV
-	ioctl(0, TCSETA, &_tty);
+	tcsetattr(0, TCSANOW, &_tty);
 #endif
 }
 
