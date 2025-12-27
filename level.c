@@ -798,6 +798,7 @@ short nr;		/* try not to put in this room */
 		new_level_message = 0;
 	}
 	mvaddch(rogue.row, rogue.col, rogue.fchar);
+	refresh();
 }
 
 int

@@ -546,6 +546,7 @@ relight()
 		light_up_room(cur_room);
 	}
 	mvaddch(rogue.row, rogue.col, rogue.fchar);
+	refresh();
 }
  int
 take_a_nap()
