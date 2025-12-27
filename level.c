@@ -398,6 +398,7 @@ clear_level()
 	party_room = NO_ROOM;
 	rogue.row = rogue.col = -1;
 	clear();
+	refresh();
 }
 
 void

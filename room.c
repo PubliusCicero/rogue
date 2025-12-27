@@ -132,7 +132,6 @@ int rn;
 				mvaddch(i, j, get_dungeon_char(i, j));
 			}
 		}
-		mvaddch(rogue.row, rogue.col, rogue.fchar);
 	}
 }
 

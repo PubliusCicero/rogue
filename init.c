@@ -115,6 +115,8 @@ char *argv[];
 	}
 	start_window();
 	init_curses = 1;
+	clear();
+	refresh();
 
 	md_heed_signals();
 
