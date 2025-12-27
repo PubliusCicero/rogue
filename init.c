@@ -117,6 +117,8 @@ char *argv[];
 	init_curses = 1;
 	clear();
 	refresh();
+	/* Force full redraw on iSH - some ncurses implementations need this */
+	clearok(stdscr, TRUE);
 
 	md_heed_signals();
 

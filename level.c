@@ -794,6 +794,8 @@ short nr;		/* try not to put in this room */
 		light_passage(rogue.row, rogue.col);
 		refresh();
 	}
+	/* Force full screen redraw on iSH */
+	clearok(stdscr, TRUE);
 	rn = get_room_number(rogue.row, rogue.col);
 	wake_room(rn, 1, rogue.row, rogue.col);
 	if (new_level_message) {
