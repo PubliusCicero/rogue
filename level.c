@@ -788,8 +788,10 @@ short nr;		/* try not to put in this room */
 	}
 	if (cur_room != PASSAGE) {
 		light_up_room(cur_room);
+		refresh();
 	} else {
 		light_passage(rogue.row, rogue.col);
+		refresh();
 	}
 	rn = get_room_number(rogue.row, rogue.col);
 	wake_room(rn, 1, rogue.row, rogue.col);
