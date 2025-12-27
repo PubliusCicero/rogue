@@ -123,6 +123,7 @@ static const char rcsid[] =
 #include <sys/types.h>
 #include <sys/file.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 
 #include <pwd.h>
 #include <time.h>
@@ -178,6 +179,7 @@ md_slurp()
  * cause certain command characters to be unavailable.
  */
 
+void
 md_control_keybord(mode)
 boolean mode;
 {
@@ -326,6 +328,7 @@ const char *fname;
  * saved-game files and play them.
  */
 
+void
 md_gct(rt_buf)
 struct rogue_time *rt_buf;
 {
@@ -359,6 +362,7 @@ struct rogue_time *rt_buf;
  * saved-games that have been modified.
  */
 
+void
 md_gfmt(fname, rt_buf)
 const char *fname;
 struct rogue_time *rt_buf;
@@ -431,6 +435,7 @@ md_gln()
  * delaying execution, which is useful to this program at some times.
  */
 
+void
 md_sleep(nsecs)
 int nsecs;
 {
@@ -517,6 +522,7 @@ md_gseed()
  * hang when it should quit.
  */
 
+void
 md_exit(status)
 int status;
 {
@@ -573,7 +579,7 @@ const char *shell;
 	if (!fork()) {
 		/* revoke */
 		setgid(getgid());
-		execl(shell, shell, 0);
+		execl(shell, shell, (char *)NULL);
 	}
 	wait(w);
 }
