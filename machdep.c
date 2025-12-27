@@ -54,11 +54,16 @@ static const char rcsid[] =
 #endif
 #endif
 
-/* Define UNIX_BSD4_2 for Linux systems if not already defined */
-#ifndef UNIX_BSD4_2
-#if defined(__linux__) && !defined(UNIX_SYSV)
+/* Define platform-specific macros */
+#ifdef __APPLE__
+/* macOS uses BSD 4.2 interface */
 #define UNIX_BSD4_2
-#endif
+#elif defined(__linux__)
+/* Linux uses SYSV termio interface */
+#define UNIX_SYSV
+#elif defined(__FreeBSD__)
+/* FreeBSD uses BSD 4.2 interface */
+#define UNIX_BSD4_2
 #endif
 
 /*
